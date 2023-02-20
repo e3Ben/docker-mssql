@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  mssql:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mssql
+    env_file: .env
+    ports:
+      - "1433:1433"
+    container_name: mssql
+    volumes:
+      - type: volume
+        source: mssql
+        target: /var/opt/mssql
+
+volumes:
+  mssql:
